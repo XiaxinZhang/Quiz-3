@@ -33,11 +33,13 @@ public class Triangle_Test {
 	@Test
 	public void testArea() {
 		assertTrue(testTriangle.getArea() == 6.0);
+		assertFalse(testTriangle.getArea() == 7.0);
 	}
 	
 	@Test
 	public void testPerimeter() {
 		assertTrue(testTriangle.getPerimeter() == 12.0);
+		assertFalse(testTriangle.getPerimeter() == 14.0);
 	}
 
 }

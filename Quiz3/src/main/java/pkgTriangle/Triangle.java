@@ -7,36 +7,30 @@ public class Triangle extends GeometricObject {
 	private double side2 = 1.0;
 	private double side3 = 1.0;
 	
-	public Triangle()
-	{
+	public Triangle() {
 		
 	}
 	
-	public Triangle(double side1, double side2, double side3)
-	{
+	public Triangle(double side1, double side2, double side3) {
 		this.side1 = side1;
 		this.side2 = side2;
 		this.side3 = side3;
 	}
 	
-	public double get_side1()
-	{
+	public double get_side1() {
 		return this.side1;
 	}
 	
-	public double get_side2()
-	{
+	public double get_side2() {
 		return this.side2;
 	}
 	
-	public double get_side3()
-	{
+	public double get_side3() {
 		return this.side3;
 	}
 	
 	@Override
-	public double getArea()
-	{
+	public double getArea() {
 		double x = this.side1;
 		double y = this.side2;
 		double z = this.side3;
@@ -46,17 +40,18 @@ public class Triangle extends GeometricObject {
 	}
 	
 	@Override
-	public double getPerimeter()
-	{	
+	public double getPerimeter() {	
 		return this.side1 + this.side2 + this.side3;
 	}
 	
 	
 	@Override
-	public String toString()
-	{
-		String description = "The triangle has sides " + String.valueOf(side1) + ", " + String.valueOf(side2) + ", and " + String.valueOf(side3) + "./n";
-		return description;
+	public String toString() {
+		System.out.println("The three sides of Triangle are"+ side1 + side2 + side3);
+		System.out.println("\n The Perimeter of the triangle is "+ getPerimeter());
+		System.out.println("\n The Area of the triangel is "+ getArea());
+		return null;
+		
 	}
 
 }
