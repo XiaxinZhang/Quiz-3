@@ -3,18 +3,31 @@ package pkgTriangle;
 import java.lang.Math;
 
 public class Triangle extends GeometricObject {
-	private double side1 = 1.0;
-	private double side2 = 1.0;
-	private double side3 = 1.0;
+	private double side1;
+	private double side2;
+	private double side3;
 	
 	public Triangle() {
+		side1 = 1.0;
+		side2 = 1.0;
+		side3 = 1.0;
 		
 	}
 	
-	public Triangle(double side1, double side2, double side3) {
+	public Triangle(double side1, double side2, double side3) throws APException {
 		this.side1 = side1;
 		this.side2 = side2;
 		this.side3 = side3;
+		double x = this.side1;
+		double y = this.side2;
+		double z = this.side3;
+		double p = (x + y + z) / 2.0;
+		if((p * ((p - x) * (p - y) * (p - z))) <= 0){ 
+			throw new APException(this);
+		}
+		else{
+			return;
+		}
 	}
 	
 	public double get_side1() {
@@ -35,8 +48,7 @@ public class Triangle extends GeometricObject {
 		double y = this.side2;
 		double z = this.side3;
 		double p = (x + y + z) / 2.0;
-		double ssq = p * (p - x) * (p - y) * (p - z);
-		return Math.sqrt(ssq);
+		return Math.sqrt(p * ((p - x) * (p - y) * (p - z)));
 	}
 	
 	@Override
@@ -47,21 +59,10 @@ public class Triangle extends GeometricObject {
 	
 	@Override
 	public String toString() {
-		System.out.println("The three sides of Triangle are"+ side1 + side2 + side3);
-		System.out.println("\n The Perimeter of the triangle is "+ getPerimeter());
-		System.out.println("\n The Area of the triangel is "+ getArea());
-		return null;
+		return("The three sides of Triangle are"+ side1 + side2 + side3 +"\n The Perimeter of the triangle is "+ getPerimeter() + "\n The Area of the triangel is "+ getArea());
 		
 	}
 	
-	public void CheckArea (double area) throws APException {
-		if (area <= 0) {
-			System.out.println("Does not meet the requirement!");
-		} 
-		else {
-			double checkarea = getArea();
-			throw new APException(checkarea);
-		}
-	}
+	
 	
 }

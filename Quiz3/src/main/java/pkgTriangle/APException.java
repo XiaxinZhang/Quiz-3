@@ -2,13 +2,11 @@ package pkgTriangle;
 
 public class APException extends Exception{
 	
-	private double area;
+	private Triangle failedTriangle;
 	
-	public APException (double area) {
-		
-		this.area = area;	
+	public APException (Triangle triangle) {
+		this.failedTriangle = triangle;
+		System.out.println("Triange not possible");	
 	}
-	public double getArea() {
-		return area;
-	}
+	
 }
