@@ -53,5 +53,15 @@ public class Triangle extends GeometricObject {
 		return null;
 		
 	}
-
+	
+	public void CheckArea (double area) throws APException {
+		if (area <= 0) {
+			System.out.println("Does not meet the requirement!");
+		} 
+		else {
+			double checkarea = getArea();
+			throw new APException(checkarea);
+		}
+	}
+	
 }
